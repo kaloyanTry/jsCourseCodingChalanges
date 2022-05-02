@@ -1,1 +1,2 @@
-#All Coding Chalanges Perosonal Solutions
+#All JS Course Coding Chalanges Perosonal Solutions
+Jonas's JS Course
