@@ -174,30 +174,116 @@
 //       .toFixed(2)})!`
 //   );
 
+//
 // // Fundamental Part Two, Coding Chalange #4:
-const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
-const tips = [];
-const totals = [];
+// const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+// const tips = [];
+// const totals = [];
 
-const calcTip = function (bill) {
-  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+// const calcTip = function (bill) {
+//   return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+// };
+
+// bills.forEach(function (bill, tip) {
+//   tip = calcTip(bill);
+//   tips.push(tip);
+//   totals.push(bill + tip);
+// });
+
+// const calcAvrg = function (arr) {
+//   const avr = arr.reduce((prev, curr) => prev + curr) / arr.length;
+//   return avr;
+// };
+// console.log('Total bills, tips, and totals:');
+// console.log(bills);
+// console.log(tips);
+// console.log(totals);
+// console.log('Average bills, tips, and totals:');
+// console.log(calcAvrg(bills));
+// console.log(calcAvrg(tips));
+// console.log(calcAvrg(totals));
+
+///////////////////////////////////////
+// Develooper skills and Editor setup
+// const temperatures = [17, 21, 23];
+// const printForcast = function (arr) {
+//   arr.forEach((t, i) => console.log(`${t}°C in ${i + 1} days`));
+// };
+// printForcast(temperatures);
+
+///////////////////////////////////
+// Data Strucutres, Coding Chalange #1, #2
+const game = {
+  team1: 'Bayer Munich',
+  team2: 'Borussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+const [players1, players2] = game.players;
+console.log(players1);
+console.log(players2);
+
+const [gk1, ...fieldPlayers1] = players1;
+console.log(gk1);
+console.log(fieldPlayers1);
+
+const [gk2, ...fieldPlayers2] = players2;
+console.log(gk2);
+console.log(fieldPlayers2);
+
+const allPlayers = [...players1, ...players2];
+console.log(allPlayers);
+
+const substitutes = ['Tiago', 'Coutinho', 'Perisic'];
+const players1Final = [...players1, ...substitutes];
+console.log(players1Final);
+
+const {
+  odds: { team1, d: draw, team2 },
+} = game;
+
+console.log(team1, draw, team2);
+
+const printGoals = function (...players) {
+  console.log(`${players.length} goals were scored.`);
+  console.log(`Goals were scored by: ${players}`);
 };
 
-bills.forEach(function (bill, tip) {
-  tip = calcTip(bill);
-  tips.push(tip);
-  totals.push(bill + tip);
-});
+printGoals(...game.scored);
 
-const calcAvrg = function (arr) {
-  const avr = arr.reduce((prev, curr) => prev + curr) / arr.length;
-  return avr;
-};
-console.log('Total bills, tips, and totals:');
-console.log(bills);
-console.log(tips);
-console.log(totals);
-console.log('Average bills, tips, and totals:');
-console.log(calcAvrg(bills));
-console.log(calcAvrg(tips));
-console.log(calcAvrg(totals));
+team1 < team2 && console.log('Team1 is more likely to win.');
+team1 > team2 && console.log('Team2 is more likely to win.');
