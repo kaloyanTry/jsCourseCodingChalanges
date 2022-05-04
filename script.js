@@ -212,139 +212,141 @@
 // printForcast(temperatures);
 
 ///////////////////////////////////
-// Data Strucutres, Coding Chalange #1, #2
-const game = {
-  team1: 'Bayer Munich',
-  team2: 'Borussia Dortmund',
-  players: [
-    [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
+// // Data Strucutres, Coding Chalange #1, #2
+// const game = {
+//   team1: 'Bayer Munich',
+//   team2: 'Borussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
 
-// 1.1. Create players array for each team:
-const [players1, players2] = game.players;
-console.log(players1);
-console.log(players2);
+// // 1.1. Create players array for each team:
+// const [players1, players2] = game.players;
+// console.log(players1);
+// console.log(players2);
 
-// 1.2. The first player is = gk and the others are fildPlayers:
-const [gk1, ...fieldPlayers1] = players1;
-console.log(gk1);
-console.log(fieldPlayers1);
+// // 1.2. The first player is = gk and the others are fildPlayers:
+// const [gk1, ...fieldPlayers1] = players1;
+// console.log(gk1);
+// console.log(fieldPlayers1);
 
-const [gk2, ...fieldPlayers2] = players2;
-console.log(gk2);
-console.log(fieldPlayers2);
+// const [gk2, ...fieldPlayers2] = players2;
+// console.log(gk2);
+// console.log(fieldPlayers2);
 
-// 1.3. Create allPlayers array, containing both teams:
-const allPlayers = [...players1, ...players2];
-console.log(allPlayers);
+// // 1.3. Create allPlayers array, containing both teams:
+// const allPlayers = [...players1, ...players2];
+// console.log(allPlayers);
 
-// 1.4. Create players1Final = orginal team + substitutes:
-const substitutes = ['Tiago', 'Coutinho', 'Perisic'];
-const players1Final = [...players1, ...substitutes];
-console.log(players1Final);
+// // 1.4. Create players1Final = orginal team + substitutes:
+// const substitutes = ['Tiago', 'Coutinho', 'Perisic'];
+// const players1Final = [...players1, ...substitutes];
+// console.log(players1Final);
 
-// 1.5. Create variable for each odd:
-const {
-  odds: { team1, x: draw, team2 },
-} = game;
-console.log(team1, draw, team2);
+// // 1.5. Create variable for each odd:
+// const {
+//   odds: { team1, x: draw, team2 },
+// } = game;
+// console.log(team1, draw, team2);
 
-// 1.6. Create printGoals function: print goals in total and the scorers
-const printGoals = function (...players) {
-  console.log(`${players.length} goals were scored.`);
-  console.log(`Goals were scored by: ${players}`);
-};
-printGoals(...game.scored);
+// // 1.6. Create printGoals function: print goals in total and the scorers
+// const printGoals = function (...players) {
+//   console.log(`${players.length} goals were scored.`);
+//   console.log(`Goals were scored by: ${players}`);
+// };
+// printGoals(...game.scored);
 
-// 1.7. Print the more likely winer team:
-team1 < team2 && console.log('Team1 is more likely to win.');
-team1 > team2 && console.log('Team2 is more likely to win.');
+// // 1.7. Print the more likely winer team:
+// team1 < team2 && console.log('Team1 is more likely to win.');
+// team1 > team2 && console.log('Team2 is more likely to win.');
 
-// 2.1. Print #goal and scorers' names:
-game.scored.forEach((n, i) => console.log(`Goal ${i + 1}: ${n}`));
+// // 2.1. Print #goal and scorers' names:
+// game.scored.forEach((n, i) => console.log(`Goal ${i + 1}: ${n}`));
 
-// 2.2. Calculate average odd:
-const odds = Object.values(game.odds); // take the values of odds:
+// // 2.2. Calculate average odd:
+// const odds = Object.values(game.odds); // take the values of odds:
 
-const oddAvrg = odds.reduce((prev, curr) => prev + curr) / odds.length;
-console.log(oddAvrg.toFixed(2));
+// const oddAvrg = odds.reduce((prev, curr) => prev + curr) / odds.length;
+// console.log(oddAvrg.toFixed(2));
 
-// 2.3. Print odds with teams' names directly from the game object:
-for (const [team, odd] of Object.entries(game.odds)) {
-  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
-  console.log(`Odd of ${teamStr} ${odd}`);
-}
+// // 2.3. Print odds with teams' names directly from the game object:
+// for (const [team, odd] of Object.entries(game.odds)) {
+//   const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+//   console.log(`Odd of ${teamStr} ${odd}`);
+// }
 
-// 2.4. Bonus: Object scorers with the names and the numbers of goals:
-const scorers = {};
-game.scored.forEach(player => {
-  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
-});
-console.log(scorers);
+// // 2.4. Bonus: Object scorers with the names and the numbers of goals:
+// const scorers = {};
+// game.scored.forEach(player => {
+//   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+// });
+// console.log(scorers);
 
-// 3.1. Create new array: events of the diff game no duplicates:
-const gameEvents = new Map([
-  [17, '⚽ GOAL'],
-  [36, '🔁 Substitution'],
-  [47, '⚽ GOAL'],
-  [61, '🔁 Substitution'],
-  [64, '🔶 Yellow card'],
-  [69, '🔴 Red card'],
-  [70, '🔁 Substitution'],
-  [72, '🔁 Substitution'],
-  [76, '⚽ GOAL'],
-  [80, '⚽ GOAL'],
-  [92, '🔶 Yellow card'],
-]);
+// // 3.1. Create new array: events of the diff game no duplicates:
+// const gameEvents = new Map([
+//   [17, '⚽ GOAL'],
+//   [36, '🔁 Substitution'],
+//   [47, '⚽ GOAL'],
+//   [61, '🔁 Substitution'],
+//   [64, '🔶 Yellow card'],
+//   [69, '🔴 Red card'],
+//   [70, '🔁 Substitution'],
+//   [72, '🔁 Substitution'],
+//   [76, '⚽ GOAL'],
+//   [80, '⚽ GOAL'],
+//   [92, '🔶 Yellow card'],
+// ]);
 
-const events = [...new Set(gameEvents.values())];
-console.log(events);
+// const events = [...new Set(gameEvents.values())];
+// console.log(events);
 
-// 3.2. Remove the event at 64 minute:
-gameEvents.delete(64);
-console.log(gameEvents);
+// // 3.2. Remove the event at 64 minute:
+// gameEvents.delete(64);
+// console.log(gameEvents);
 
-// 3.3. Calculate average time of even to happen
-const lastEl = [...gameEvents.keys()].pop(); //calculate the last event of the game = end
-const avrgEvent = lastEl / gameEvents.size; // calculate average time event
-console.log(`An event happened, on average, every ${avrgEvent} minutes`);
+// // 3.3. Calculate average time of even to happen
+// const lastEl = [...gameEvents.keys()].pop(); //calculate the last event of the game = end
+// const avrgEvent = lastEl / gameEvents.size; // calculate average time event
+// console.log(`An event happened, on average, every ${avrgEvent} minutes`);
 
-// 3.4. Bonus: Print each event and minute:
-for (const [min, event] of gameEvents) {
-  const half = min <= 45 ? 'FIRST' : 'SECOND';
-  console.log(`[${half} HALF] ${min} ${event}`);
-}
+// // 3.4. Bonus: Print each event and minute:
+// for (const [min, event] of gameEvents) {
+//   const half = min <= 45 ? 'FIRST' : 'SECOND';
+//   console.log(`[${half} HALF] ${min} ${event}`);
+// }
+
+////////////////////////////////////////
