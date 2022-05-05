@@ -350,3 +350,28 @@
 // }
 
 ////////////////////////////////////////
+// Arrays Advanced:
+const dataJulia = [3, 5, 2, 12, 7];
+const dataKate = [4, 1, 15, 8, 3];
+
+const checkDogs = function (dogs1, dogs2) {
+  const dogsJulia = dataJulia.slice(dogs1);
+  dogsJulia.splice(0, 1);
+  dogsJulia.splice(-2);
+  console.log(dogsJulia);
+
+  const allDogs = dogsJulia.concat(dogs2);
+  console.log(allDogs);
+
+  allDogs.forEach((dog, i) => {
+    if (dog >= 3)
+      console.log(
+        `Dog number ${i + 1} is an adult, and it is ${dog} years old.`
+      );
+    if (dog < 3)
+      console.log(
+        `Dog number ${i + 1} is still a puppy 🐶, and it is ${dog} years old.`
+      );
+  });
+};
+checkDogs(dataJulia, dataKate);
