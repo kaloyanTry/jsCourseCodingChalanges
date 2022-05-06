@@ -350,3 +350,51 @@
 // }
 
 ////////////////////////////////////////
+// Arrays Advanced:
+//Coding Chalange #1:
+// const dataJulia = [3, 5, 2, 12, 7];
+// const dataKate = [4, 1, 15, 8, 3];
+
+// const checkDogs = function (dogs1, dogs2) {
+//   const dogsJulia = dataJulia.slice(dogs1);
+//   dogsJulia.splice(0, 1);
+//   dogsJulia.splice(-2);
+//   console.log(dogsJulia);
+
+//   const allDogs = dogsJulia.concat(dogs2);
+//   console.log(allDogs);
+
+//   allDogs.forEach((dog, i) => {
+//     if (dog >= 3)
+//       console.log(
+//         `Dog number ${i + 1} is an adult, and it is ${dog} years old.`
+//       );
+//     if (dog < 3)
+//       console.log(
+//         `Dog number ${i + 1} is still a puppy 🐶, and it is ${dog} years old.`
+//       );
+//   });
+// };
+// checkDogs(dataJulia, dataKate);
+
+// Coding Chalange #2:
+
+data = [5, 2, 4, 1, 15, 8, 3];
+
+const caslcAverageHumanAge = function (ages) {
+  // const humanAges = [];
+  // ages.forEach(function (age) {
+  //   if (age <= 2) humanAges.push(age * 2);
+  //   if (age > 2) humanAges.push(age * 4 + 16);
+  // });
+  //Johnas's solution with: map method => create a new array based on the original array:
+  const humanAges = ages.map(age => (age <= 2 ? age * 2 : age * 4 + 16));
+  const adultDogs = humanAges.filter(age => age > 18);
+  console.log(humanAges);
+  console.log(adultDogs);
+
+  const averageAges =
+    adultDogs.reduce((acc, age) => acc + age, 0) / adultDogs.length;
+  console.log(averageAges);
+};
+caslcAverageHumanAge(data);
