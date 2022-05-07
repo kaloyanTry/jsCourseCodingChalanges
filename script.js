@@ -349,9 +349,9 @@
 //   console.log(`[${half} HALF] ${min} ${event}`);
 // }
 
-////////////////////////////////////////
+///////////////////////////////////////////////////
 // Arrays Advanced:
-//Coding Chalange #1:
+// Coding Chalange #1:
 // const dataJulia = [3, 5, 2, 12, 7];
 // const dataKate = [4, 1, 15, 8, 3];
 
@@ -378,23 +378,86 @@
 // checkDogs(dataJulia, dataKate);
 
 // Coding Chalange #2:
+// const data = [5, 2, 4, 1, 15, 8, 3];
+// const data1 = [16, 6, 10, 5, 6, 1, 4];
+// const caslcAverageHumanAge = function (ages) {
+//   // const humanAges = [];
+//   // ages.forEach(function (age) {
+//   //   if (age <= 2) humanAges.push(age * 2);
+//   //   if (age > 2) humanAges.push(age * 4 + 16);
+//   // });
+//   //Johnas's solution with: map method => create a new array based on the original array:
+//   const humanAges = ages.map(age => (age <= 2 ? age * 2 : age * 4 + 16));
+//   const adultDogs = humanAges.filter(age => age > 18);
+//   console.log(humanAges);
+//   console.log(adultDogs);
 
-data = [5, 2, 4, 1, 15, 8, 3];
+//   const averageAges =
+//     adultDogs.reduce((acc, age) => acc + age, 0) / adultDogs.length;
+//   console.log(averageAges);
+// };
+// caslcAverageHumanAge(data);
 
-const caslcAverageHumanAge = function (ages) {
-  // const humanAges = [];
-  // ages.forEach(function (age) {
-  //   if (age <= 2) humanAges.push(age * 2);
-  //   if (age > 2) humanAges.push(age * 4 + 16);
-  // });
-  //Johnas's solution with: map method => create a new array based on the original array:
-  const humanAges = ages.map(age => (age <= 2 ? age * 2 : age * 4 + 16));
-  const adultDogs = humanAges.filter(age => age > 18);
-  console.log(humanAges);
-  console.log(adultDogs);
+// // Code Chalange #3:
+// const calcAverageHumanAge = ages =>
+//   ages
+//     .map(age => (age <= 2 ? age * 2 : age * 4 + 16))
+//     .filter(age => age >= 18)
+//     .reduce((acc, age, _i, arr) => acc + age / arr.length, 0);
 
-  const averageAges =
-    adultDogs.reduce((acc, age) => acc + age, 0) / adultDogs.length;
-  console.log(averageAges);
-};
-caslcAverageHumanAge(data);
+// console.log(calcAverageHumanAge(data));
+// console.log(calcAverageHumanAge(data1));
+
+// Coding Chalange #4:
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+// 1. Create a new porperty for dogs object:
+dogs.forEach(dog => (dog.recFood = Math.trunc(dog.weight ** 0.75 * 28)));
+console.log(dogs);
+
+// 2. Find Sarah's dog:
+const sarahDog = dogs.find(dog => dog.owners.includes('Sarah'));
+console.log(sarahDog);
+console.log(
+  `Sarah's dog is eating too ${
+    sarahDog.curFood > sarahDog.recFood ? 'much' : 'little'
+  } `
+);
+
+// 3. New array of eating to much/little doogs:
+const ownersEatTooMuch = dogs
+  .filter(dog => dog.curFood > dog.recFood)
+  .flatMap(dog => dog.owners);
+
+const ownersEatTooLittle = dogs
+  .filter(dog => dog.curFood < dog.recFood)
+  .flatMap(dog => dog.owners);
+
+// 4. Printing on console a proper output:
+console.log(`${ownersEatTooMuch.join(' and ')}'s dogs eat too much.`);
+console.log(`${ownersEatTooLittle.join(' and ')}'s dogs eat too little.`);
+
+// 5. Print if there is a dog eating exactly the amount of food true/false:
+console.log(dogs.some(dog => dog.curFood === dog.recFood));
+
+// 6. Print if there is a dog with ok amount of food:
+const checkOKFood = dog =>
+  dog.curFood > dog.recFood * 0.9 && dog.curFood < dog.recFood * 1.1;
+console.log(dogs.some(checkOKFood));
+
+// 7. Crete an array of dogs with ok amount of food:
+const dogsOKFood = dogs.filter(checkOKFood);
+console.log(dogsOKFood);
+
+// 8. Create an shallow copy of dogs ascending order:
+const dogsSorted = dogs.slice().sort((a, b) => a.recFood - b.recFood);
+console.log(dogsSorted);
+dogs.flat();
+
+// Creating an Array with Array.from method:
+const arrFrom = Array.from({ length: 5 }, (_, i) => i + 1);
+console.log(arrFrom);
